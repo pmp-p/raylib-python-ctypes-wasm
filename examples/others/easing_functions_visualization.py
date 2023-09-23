@@ -50,7 +50,7 @@ EASING_FUNCTION_NAMES = [
     b"EaseBounceInOut",
     b"EaseElasticIn",
     b"EaseElasticOut",
-    b"EaseElasticInOut"
+    b"EaseElasticInOut",
 ]
 
 
@@ -194,10 +194,16 @@ def main():
         text_time_width = measure_text(b"Time", 20)
         draw_text(b"Time", int(GRAPH_OFFSET_X + (GRAPH_WIDTH - text_time_width) / 2), GRAPH_OFFSET_Y - 20, 20, WHITE)
         text_position_width = measure_text(b"Position", 20)
-        draw_text_pro(get_font_default(), b"Position",
-                      Vector2(GRAPH_OFFSET_X - 20.0, GRAPH_OFFSET_Y + (GRAPH_HEIGHT + text_position_width) / 2.0),
-                      Vector2(0.0, 0.0),
-                      -90.0, 20.0, 2.0, WHITE)
+        draw_text_pro(
+            get_font_default(),
+            b"Position",
+            Vector2(GRAPH_OFFSET_X - 20.0, GRAPH_OFFSET_Y + (GRAPH_HEIGHT + text_position_width) / 2.0),
+            Vector2(0.0, 0.0),
+            -90.0,
+            20.0,
+            2.0,
+            WHITE,
+        )
         draw_rectangle_lines(GRAPH_OFFSET_X, GRAPH_OFFSET_Y, GRAPH_WIDTH, GRAPH_HEIGHT, WHITE)
 
         # Draw Legend
@@ -230,5 +236,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

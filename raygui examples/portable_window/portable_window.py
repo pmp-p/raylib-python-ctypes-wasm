@@ -46,7 +46,8 @@ def main():
         if drag_window:
             window_position.x += mouse_position.x - pan_offset.x
             window_position.y += mouse_position.y - pan_offset.y
-            if is_mouse_button_released(MouseButton.MOUSE_BUTTON_LEFT): drag_window = False
+            if is_mouse_button_released(MouseButton.MOUSE_BUTTON_LEFT):
+                drag_window = False
 
             set_window_position(int(window_position.x), int(window_position.y))
         # ----------------------------------------------------------------------------------
@@ -70,5 +71,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

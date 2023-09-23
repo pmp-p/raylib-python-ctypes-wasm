@@ -13,6 +13,7 @@ MAX_BUILDINGS = 100
 
 # ------------------------------------------------------------------------------------
 
+
 # ------------------------------------------------------------------------------------
 # Program main entry point
 # ------------------------------------------------------------------------------------
@@ -55,8 +56,10 @@ def main():
         # Update
         # ----------------------------------------------------------------------------------
         # Player movement
-        if is_key_down(KeyboardKey.KEY_RIGHT): player.x += 2
-        if is_key_down(KeyboardKey.KEY_LEFT): player.x -= 2
+        if is_key_down(KeyboardKey.KEY_RIGHT):
+            player.x += 2
+        if is_key_down(KeyboardKey.KEY_LEFT):
+            player.x -= 2
 
         # Camera target follows player
         camera.target = Vector2(player.x + 20, player.y + 20)
@@ -97,7 +100,8 @@ def main():
 
         draw_rectangle(-6000, 320, 13000, 8000, DARKGRAY)
 
-        for i in range(MAX_BUILDINGS): draw_rectangle_rec(buildings[i], build_colors[i])
+        for i in range(MAX_BUILDINGS):
+            draw_rectangle_rec(buildings[i], build_colors[i])
 
         draw_rectangle_rec(player, RED)
 
@@ -132,5 +136,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

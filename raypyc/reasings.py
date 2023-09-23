@@ -82,6 +82,7 @@ import math  # Required for: sin(), cos(), sqrt(), pow(), pi
 
 # Linear Easing functions
 
+
 def ease_linear_none(t: float, b: float, c: float, d: float) -> float:
     """Ease: Linear"""
     return c * t / d + b
@@ -104,6 +105,7 @@ def ease_linear_in_out(t: float, b: float, c: float, d: float) -> float:
 
 # Sine Easing functions
 
+
 def ease_sine_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Sine In"""
     return -c * math.cos(t / d * (math.pi / 2.0)) + c + b
@@ -120,6 +122,7 @@ def ease_sine_in_out(t: float, b: float, c: float, d: float) -> float:
 
 
 # Circular Easing functions
+
 
 def ease_circ_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Circular In"""
@@ -144,6 +147,7 @@ def ease_circ_in_out(t: float, b: float, c: float, d: float) -> float:
 
 # Cubic Easing functions
 
+
 def ease_cubic_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Cubic In"""
     t /= d
@@ -166,6 +170,7 @@ def ease_cubic_in_out(t: float, b: float, c: float, d: float) -> float:
 
 
 # Quadratic Easing functions
+
 
 def ease_quad_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Quadratic In"""
@@ -190,6 +195,7 @@ def ease_quad_in_out(t: float, b: float, c: float, d: float) -> float:
 
 # Exponential Easing functions
 
+
 def ease_expo_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Exponential In"""
     return b if t == 0.0 else c * math.pow(2.0, 10.0 * (t / d - 1.0)) + b
@@ -202,15 +208,19 @@ def ease_expo_out(t: float, b: float, c: float, d: float) -> float:
 
 def ease_expo_in_out(t: float, b: float, c: float, d: float) -> float:
     """Ease: Exponential In Out"""
-    if t == 0.0: return b
-    if t == d: return b + c
+    if t == 0.0:
+        return b
+    if t == d:
+        return b + c
     t /= d / 2.0
-    if t < 1.0: return c / 2.0 * math.pow(2.0, 10.0 * (t - 1.0)) + b
+    if t < 1.0:
+        return c / 2.0 * math.pow(2.0, 10.0 * (t - 1.0)) + b
 
     return c / 2.0 * (-math.pow(2.0, -10.0 * (t - 1.0)) + 2.0) + b
 
 
 # Back Easing functions
+
 
 def ease_back_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Back In"""
@@ -243,6 +253,7 @@ def ease_back_in_out(t: float, b: float, c: float, d: float) -> float:
 
 
 # Bounce Easing functions
+
 
 def ease_bounce_out(t: float, b: float, c: float, d: float) -> float:
     """Ease: Bounce Out"""
@@ -278,11 +289,14 @@ def ease_bounce_in_out(t: float, b: float, c: float, d: float) -> float:
 
 # Elastic Easing functions
 
+
 def ease_elastic_in(t: float, b: float, c: float, d: float) -> float:
     """Ease: Elastic In"""
-    if t == 0.0: return b
+    if t == 0.0:
+        return b
     t /= d
-    if t == 1.0: return b + c
+    if t == 1.0:
+        return b + c
 
     p: float = d * 0.3
     a: float = c
@@ -295,9 +309,11 @@ def ease_elastic_in(t: float, b: float, c: float, d: float) -> float:
 
 def ease_elastic_out(t: float, b: float, c: float, d: float) -> float:
     """Ease: Elastic Out"""
-    if t == 0.0: return b
+    if t == 0.0:
+        return b
     t /= d
-    if t == 1.0: return b + c
+    if t == 1.0:
+        return b + c
 
     p: float = d * 0.3
     a: float = c
@@ -308,9 +324,11 @@ def ease_elastic_out(t: float, b: float, c: float, d: float) -> float:
 
 def ease_elastic_in_out(t: float, b: float, c: float, d: float) -> float:
     """Ease: Elastic In Out"""
-    if t == 0.0: return b
+    if t == 0.0:
+        return b
     t /= d / 2.0
-    if t == 2.0: return b + c
+    if t == 2.0:
+        return b + c
 
     p: float = d * (0.3 * 1.5)
     a: float = c

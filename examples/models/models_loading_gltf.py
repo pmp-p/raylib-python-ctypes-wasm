@@ -47,8 +47,10 @@ def main():
         # Update
         # ----------------------------------------------------------------------------------
         # Select current animation
-        if is_key_pressed(KeyboardKey.KEY_UP): animIndex = (animIndex + 1) % animsCount
-        if is_key_pressed(KeyboardKey.KEY_DOWN): animIndex = (animIndex + animsCount - 1) % animsCount
+        if is_key_pressed(KeyboardKey.KEY_UP):
+            animIndex = (animIndex + 1) % animsCount
+        if is_key_pressed(KeyboardKey.KEY_DOWN):
+            animIndex = (animIndex + animsCount - 1) % animsCount
 
         # Update model animation
         anim = modelAnimations[animIndex]
@@ -82,5 +84,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -53,7 +53,8 @@ def main():
         # Get normalized time played for current music stream
         timePlayed = get_music_time_played(music) / get_music_time_length(music)
 
-        if timePlayed > 1.0: timePlayed = 1.0  # Make sure time played is no longer than music
+        if timePlayed > 1.0:
+            timePlayed = 1.0  # Make sure time played is no longer than music
 
         # Draw
         # ----------------------------------------------------------------------------------
@@ -84,5 +85,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

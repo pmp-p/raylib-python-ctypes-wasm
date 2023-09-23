@@ -49,13 +49,19 @@ def main():
         draw_rectangle_lines(int(SCREEN_WIDTH / 4 * 2 - 40), 320, 80, 60, ORANGE)  # NOTE: Uses QUADS internally, not lines
 
         # Triangle shapes and lines
-        draw_triangle(Vector2(SCREEN_WIDTH / 4.0 * 3.0, 80.0),
-                      Vector2(SCREEN_WIDTH / 4.0 * 3.0 - 60.0, 150.0),
-                      Vector2(SCREEN_WIDTH / 4.0 * 3.0 + 60.0, 150.0), VIOLET)
+        draw_triangle(
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0, 80.0),
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0 - 60.0, 150.0),
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0 + 60.0, 150.0),
+            VIOLET,
+        )
 
-        draw_triangle_lines(Vector2(SCREEN_WIDTH / 4.0 * 3.0, 160.0),
-                            Vector2(SCREEN_WIDTH / 4.0 * 3.0 - 20.0, 230.0),
-                            Vector2(SCREEN_WIDTH / 4.0 * 3.0 + 20.0, 230.0), DARKBLUE)
+        draw_triangle_lines(
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0, 160.0),
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0 - 20.0, 230.0),
+            Vector2(SCREEN_WIDTH / 4.0 * 3.0 + 20.0, 230.0),
+            DARKBLUE,
+        )
 
         # Polygon shapes and lines
         draw_poly(Vector2(SCREEN_WIDTH / 4.0 * 3, 330), 6, 80, rotation, BROWN)
@@ -75,5 +81,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

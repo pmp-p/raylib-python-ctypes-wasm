@@ -24,7 +24,9 @@ MAX_CHAR_PRESSED_QUEUE: int = 16  # Maximum number of characters in the char inp
 MAX_DECOMPRESSION_SIZE: int = 64  # Max size allocated for decompression in MB
 RL_DEFAULT_BATCH_BUFFERS: int = 1  # Default number of batch buffers (multi-buffering)
 RL_DEFAULT_BATCH_DRAWCALLS: int = 256  # Default number of batch draw calls (by state changes: mode, texture)
-RL_DEFAULT_BATCH_MAX_TEXTURE_UNITS: int = 4  # Maximum number of textures units that can be activated on batch drawing (SetShaderValueTexture())
+RL_DEFAULT_BATCH_MAX_TEXTURE_UNITS: int = (
+    4  # Maximum number of textures units that can be activated on batch drawing (SetShaderValueTexture())
+)
 RL_MAX_MATRIX_STACK_SIZE: int = 32  # Maximum size of internal Matrix stack
 RL_MAX_SHADER_LOCATIONS: int = 32  # Maximum number of shader locations supported
 RL_CULL_DISTANCE_NEAR: float = 0.01  # Default projection matrix near cull distance
@@ -150,8 +152,8 @@ RAYLIB_VERSION_MINOR: int = 6
 RAYLIB_VERSION_PATCH: int = 0
 RAYLIB_VERSION: str = "4.6-dev"
 PI: float = 3.141592653589793
-DEG2RAD: float = (PI/180.0)
-RAD2DEG: float = (180.0/PI)
+DEG2RAD: float = PI / 180.0
+RAD2DEG: float = 180.0 / PI
 EPSILON: float = 1e-06
 RAYGUI_VERSION_MAJOR: int = 3
 RAYGUI_VERSION_MINOR: int = 5

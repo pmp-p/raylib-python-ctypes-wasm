@@ -40,16 +40,19 @@ def main():
         scrollingFore -= 1.0
 
         # NOTE: Texture is scaled twice its size, so it sould be considered on scrolling
-        if scrollingBack <= -background.width * 2: scrollingBack = 0
-        if scrollingMid <= -midground.width * 2: scrollingMid = 0
-        if scrollingFore <= -foreground.width * 2: scrollingFore = 0
+        if scrollingBack <= -background.width * 2:
+            scrollingBack = 0
+        if scrollingMid <= -midground.width * 2:
+            scrollingMid = 0
+        if scrollingFore <= -foreground.width * 2:
+            scrollingFore = 0
         # ----------------------------------------------------------------------------------
 
         # Draw
         # ----------------------------------------------------------------------------------
         begin_drawing()
 
-        clear_background(get_color(0x052c46ff))
+        clear_background(get_color(0x052C46FF))
 
         # Draw background image twice
         # NOTE: Texture is scaled twice its size
@@ -81,5 +84,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -16,11 +16,12 @@ POINTS_OF_INTEREST = [
     [-0.8, 0.156],
     [0.285, 0.0],
     [-0.835, -0.2321],
-    [-0.70176, -0.3842]
+    [-0.70176, -0.3842],
 ]
 
 
 # ------------------------------------------------------------------------------------
+
 
 # ------------------------------------------------------------------------------------
 # Program main entry point
@@ -59,7 +60,9 @@ def main():
 
     # Tell the shader what the screen dimensions, zoom, offset and c are
     screen_dims = (c_float * 2)(get_screen_width(), (get_screen_height()))
-    set_shader_value(shader, get_shader_location(shader, b"screenDims"), pointer(screen_dims), ShaderUniformDataType.SHADER_UNIFORM_VEC2)
+    set_shader_value(
+        shader, get_shader_location(shader, b"screenDims"), pointer(screen_dims), ShaderUniformDataType.SHADER_UNIFORM_VEC2
+    )
 
     set_shader_value(shader, c_loc, c, ShaderUniformDataType.SHADER_UNIFORM_VEC2)
     set_shader_value(shader, zoom_loc, pointer(c_float(zoom)), ShaderUniformDataType.SHADER_UNIFORM_FLOAT)
@@ -77,13 +80,14 @@ def main():
         # Update
         # ----------------------------------------------------------------------------------
         # Press [1 - 6] to reset c to a point of interest
-        if is_key_pressed(KeyboardKey.KEY_ONE) or \
-                is_key_pressed(KeyboardKey.KEY_TWO) or \
-                is_key_pressed(KeyboardKey.KEY_THREE) or \
-                is_key_pressed(KeyboardKey.KEY_FOUR) or \
-                is_key_pressed(KeyboardKey.KEY_FIVE) or \
-                is_key_pressed(KeyboardKey.KEY_SIX):
-
+        if (
+            is_key_pressed(KeyboardKey.KEY_ONE)
+            or is_key_pressed(KeyboardKey.KEY_TWO)
+            or is_key_pressed(KeyboardKey.KEY_THREE)
+            or is_key_pressed(KeyboardKey.KEY_FOUR)
+            or is_key_pressed(KeyboardKey.KEY_FIVE)
+            or is_key_pressed(KeyboardKey.KEY_SIX)
+        ):
             if is_key_pressed(KeyboardKey.KEY_ONE):
                 c[0] = POINTS_OF_INTEREST[0][0]
                 c[1] = POINTS_OF_INTEREST[0][1]
@@ -105,8 +109,10 @@ def main():
 
             set_shader_value(shader, c_loc, c, ShaderUniformDataType.SHADER_UNIFORM_VEC2)
 
-        if is_key_pressed(KeyboardKey.KEY_SPACE): pause = not pause  # Pause animation (c change)
-        if is_key_pressed(KeyboardKey.KEY_F1): show_controls = not show_controls  # Toggle whether to show controls
+        if is_key_pressed(KeyboardKey.KEY_SPACE):
+            pause = not pause  # Pause animation (c change)
+        if is_key_pressed(KeyboardKey.KEY_F1):
+            show_controls = not show_controls  # Toggle whether to show controls
 
         if not pause:
             if is_key_pressed(KeyboardKey.KEY_RIGHT):
@@ -117,8 +123,10 @@ def main():
             # TODO: The idea is to zoom and move around with mouse
             # Probably offset movement should be proportional to zoom level
             if is_mouse_button_down(MouseButton.MOUSE_BUTTON_LEFT) or is_mouse_button_down(MouseButton.MOUSE_BUTTON_RIGHT):
-                if is_mouse_button_down(MouseButton.MOUSE_BUTTON_LEFT): zoom += zoom * 0.003
-                if is_mouse_button_down(MouseButton.MOUSE_BUTTON_RIGHT): zoom -= zoom * 0.003
+                if is_mouse_button_down(MouseButton.MOUSE_BUTTON_LEFT):
+                    zoom += zoom * 0.003
+                if is_mouse_button_down(MouseButton.MOUSE_BUTTON_RIGHT):
+                    zoom -= zoom * 0.003
 
                 mouse_pos = get_mouse_position()
 
@@ -162,7 +170,15 @@ def main():
             begin_shader_mode(shader)
             # WARNING: If FLAG_WINDOW_HIGHDPI is enabled, HighDPI monitor scaling should be considered
             # when rendering the RenderTexture2D to fit in the HighDPI scaled Window
-            draw_texture_ex(Texture2D(target.texture.id, target.texture.width, target.texture.height, target.texture.mipmaps, target.texture.format), Vector2(0.0, 0.0), 0.0, 1.0, WHITE)
+            draw_texture_ex(
+                Texture2D(
+                    target.texture.id, target.texture.width, target.texture.height, target.texture.mipmaps, target.texture.format
+                ),
+                Vector2(0.0, 0.0),
+                0.0,
+                1.0,
+                WHITE,
+            )
             end_shader_mode()
 
             if show_controls:
@@ -184,5 +200,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

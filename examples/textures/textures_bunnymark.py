@@ -23,6 +23,7 @@ class Bunny:
 
 # ------------------------------------------------------------------------------------
 
+
 # ------------------------------------------------------------------------------------
 # Program main entry point
 # ------------------------------------------------------------------------------------
@@ -57,7 +58,9 @@ def main():
                     bunnies[bunnies_count].position = get_mouse_position()
                     bunnies[bunnies_count].speed.x = get_random_value(-250, 250) / 60.0
                     bunnies[bunnies_count].speed.y = get_random_value(-250, 250) / 60.0
-                    bunnies[bunnies_count].color = Color(get_random_value(50, 240), get_random_value(80, 240), get_random_value(100, 240), 255)
+                    bunnies[bunnies_count].color = Color(
+                        get_random_value(50, 240), get_random_value(80, 240), get_random_value(100, 240), 255
+                    )
                     bunnies_count += 1
 
         # Update bunnies
@@ -67,7 +70,10 @@ def main():
 
             if bunnies[i].position.x + tex_bunny.width / 2 > SCREEN_WIDTH or bunnies[i].position.x + tex_bunny.width / 2 < 0:
                 bunnies[i].speed.x *= -1
-            if bunnies[i].position.y + tex_bunny.height / 2 > SCREEN_HEIGHT or bunnies[i].position.y + tex_bunny.height / 2 - 40 < 0:
+            if (
+                bunnies[i].position.y + tex_bunny.height / 2 > SCREEN_HEIGHT
+                or bunnies[i].position.y + tex_bunny.height / 2 - 40 < 0
+            ):
                 bunnies[i].speed.y *= -1
         # ----------------------------------------------------------------------------------
 
@@ -89,8 +95,8 @@ def main():
 
         draw_rectangle(0, 0, SCREEN_WIDTH, 40, BLACK)
 
-        draw_text(f"bunnies {bunnies_count}".encode('utf-8'), 120, 10, 20, GREEN)
-        draw_text(f"batched draw calls: {1 + int(bunnies_count / MAX_BATCH_ELEMENTS)}".encode('utf-8'), 320, 10, 20, MAROON)
+        draw_text(f"bunnies {bunnies_count}".encode("utf-8"), 120, 10, 20, GREEN)
+        draw_text(f"batched draw calls: {1 + int(bunnies_count / MAX_BATCH_ELEMENTS)}".encode("utf-8"), 320, 10, 20, MAROON)
 
         draw_fps(10, 10)
 
@@ -106,5 +112,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

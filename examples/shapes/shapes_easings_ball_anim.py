@@ -66,7 +66,8 @@ def main():
                 ball_alpha = 0.0
                 state = 0
 
-        if is_key_pressed(KeyboardKey.KEY_R): frames_counter = 0
+        if is_key_pressed(KeyboardKey.KEY_R):
+            frames_counter = 0
         # ----------------------------------------------------------------------------------
 
         # Draw
@@ -75,10 +76,12 @@ def main():
 
         clear_background(RAYWHITE)
 
-        if state >= 2: draw_rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, GREEN)
+        if state >= 2:
+            draw_rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, GREEN)
         draw_circle(ball_position_x, 200, float(ball_radius), fade(RED, 1.0 - ball_alpha))
 
-        if state == 3: draw_text(b"PRESS [ENTER] TO PLAY AGAIN!", 240, 200, 20, BLACK)
+        if state == 3:
+            draw_text(b"PRESS [ENTER] TO PLAY AGAIN!", 240, 200, 20, BLACK)
 
         end_drawing()
         # ----------------------------------------------------------------------------------
@@ -90,5 +93,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

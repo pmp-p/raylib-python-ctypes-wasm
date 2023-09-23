@@ -21,3 +21,5 @@ build/all/*.json
 build/all/*.dll
 build/all/*.so*
 build/tmp
+
+/dist

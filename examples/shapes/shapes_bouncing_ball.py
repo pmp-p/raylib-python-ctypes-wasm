@@ -32,15 +32,18 @@ def main():
     while not window_should_close():  # Detect window close button or ESC key
         # Update
         # ----------------------------------------------------------------------------------
-        if is_key_pressed(KeyboardKey.KEY_SPACE): pause = not pause
+        if is_key_pressed(KeyboardKey.KEY_SPACE):
+            pause = not pause
 
         if not pause:
             ball_position.x += ball_speed.x
             ball_position.y += ball_speed.y
 
             # Check walls collision for bouncing
-            if ball_position.x >= get_screen_width() - ball_radius or ball_position.x <= ball_radius: ball_speed.x *= -1.0
-            if ball_position.y >= get_screen_height() - ball_radius or ball_position.y <= ball_radius: ball_speed.y *= -1.0
+            if ball_position.x >= get_screen_width() - ball_radius or ball_position.x <= ball_radius:
+                ball_speed.x *= -1.0
+            if ball_position.y >= get_screen_height() - ball_radius or ball_position.y <= ball_radius:
+                ball_speed.y *= -1.0
         else:
             frames_counter += 1
         # ----------------------------------------------------------------------------------
@@ -56,7 +59,8 @@ def main():
 
         # On pause, we draw a blinking message
 
-        if pause and (frames_counter / 30) % 2: draw_text(b"PAUSED", 350, 200, 30, GRAY)
+        if pause and (frames_counter / 30) % 2:
+            draw_text(b"PAUSED", 350, 200, 30, GRAY)
 
         draw_fps(10, 10)
 
@@ -70,5 +74,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -15,6 +15,7 @@ MAX_INPUT_CHARS = 9
 
 # ------------------------------------------------------------------------------------
 
+
 # ------------------------------------------------------------------------------------
 # Program main entry point
 # ------------------------------------------------------------------------------------
@@ -26,7 +27,7 @@ def main():
 
     init_window(SCREEN_WIDTH, SCREEN_HEIGHT, b"raylib [text] example - input box")
 
-    name = (ctypes.c_char * (MAX_INPUT_CHARS + 1))(b'\0')  # NOTE: One extra space required for null terminator char '\0'
+    name = (ctypes.c_char * (MAX_INPUT_CHARS + 1))(b"\0")  # NOTE: One extra space required for null terminator char '\0'
 
     letter_count = 0
 
@@ -59,7 +60,7 @@ def main():
                 # NOTE: Only allow keys in range [32..125]
                 if 32 <= key <= 125 and letter_count < MAX_INPUT_CHARS:
                     name[letter_count] = ctypes.c_char(key)
-                    name[letter_count + 1] = b'\0'  # Add null terminator at the end of the string.
+                    name[letter_count + 1] = b"\0"  # Add null terminator at the end of the string.
                     letter_count += 1
 
                 key = get_char_pressed()  # Check next character in the queue
@@ -68,7 +69,7 @@ def main():
                 letter_count -= 1
                 if letter_count < 0:
                     letter_count = 0
-                name[letter_count] = b'\0'
+                name[letter_count] = b"\0"
         else:
             set_mouse_cursor(MouseCursor.MOUSE_CURSOR_DEFAULT)
 
@@ -94,7 +95,9 @@ def main():
 
         draw_text(name, int(text_box.x + 5), int(text_box.y + 8), 40, MAROON)
 
-        draw_text(f"INPUT CHARS: {letter_count}/{MAX_INPUT_CHARS}".encode(), 315, 250, 20, DARKGRAY)  # we prefer to not use text_format
+        draw_text(
+            f"INPUT CHARS: {letter_count}/{MAX_INPUT_CHARS}".encode(), 315, 250, 20, DARKGRAY
+        )  # we prefer to not use text_format
 
         if mouse_on_text:
             if letter_count < MAX_INPUT_CHARS:
@@ -114,5 +117,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

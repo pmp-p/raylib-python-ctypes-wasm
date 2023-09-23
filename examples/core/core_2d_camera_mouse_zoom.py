@@ -50,8 +50,9 @@ def main():
             # Zoom increment
             ZOOM_INCREMENT = 0.125
 
-            camera.zoom += (wheel * ZOOM_INCREMENT)
-            if camera.zoom < ZOOM_INCREMENT: camera.zoom = ZOOM_INCREMENT
+            camera.zoom += wheel * ZOOM_INCREMENT
+            if camera.zoom < ZOOM_INCREMENT:
+                camera.zoom = ZOOM_INCREMENT
         # ----------------------------------------------------------------------------------
 
         # Draw
@@ -87,5 +88,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

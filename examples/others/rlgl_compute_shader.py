@@ -18,21 +18,20 @@ MAX_BUFFERED_TRANSFERTS = 48
 
 class GolUpdateCmd(Structure):
     """Game Of Life Update Command"""
+
     _fields_ = [
-        ('x', c_uint),  # x coordinate of the gol command
-        ('y', c_uint),  # y coordinate of the gol command
-        ('w', c_uint),  # width of the filled zone
-        ('enabled', c_uint)  # whether to enable or disable zone
+        ("x", c_uint),  # x coordinate of the gol command
+        ("y", c_uint),  # y coordinate of the gol command
+        ("w", c_uint),  # width of the filled zone
+        ("enabled", c_uint),  # whether to enable or disable zone
     ]
 
 
 #  Game Of Life Update Commands SSBO
 class GolUpdateSSBO(Structure):
     """Game Of Life Update Commands SSBO"""
-    _fields_ = [
-        ('count', c_uint),
-        ('commands', GolUpdateCmd * MAX_BUFFERED_TRANSFERTS)
-    ]
+
+    _fields_ = [("count", c_uint), ("commands", GolUpdateCmd * MAX_BUFFERED_TRANSFERTS)]
 
 
 # ------------------------------------------------------------------------------------
@@ -82,7 +81,9 @@ def main():
         # ----------------------------------------------------------------------------------
         brush_size += int(get_mouse_wheel_move())
 
-        if (is_mouse_button_down(MouseButton.MOUSE_BUTTON_LEFT) or is_mouse_button_down(MouseButton.MOUSE_BUTTON_RIGHT)) and transfert_buffer.count < MAX_BUFFERED_TRANSFERTS:
+        if (
+            is_mouse_button_down(MouseButton.MOUSE_BUTTON_LEFT) or is_mouse_button_down(MouseButton.MOUSE_BUTTON_RIGHT)
+        ) and transfert_buffer.count < MAX_BUFFERED_TRANSFERTS:
             #  Buffer a new command
             transfert_buffer.commands[transfert_buffer.count].x = int(get_mouse_x() - brush_size / 2)
             transfert_buffer.commands[transfert_buffer.count].y = int(get_mouse_y() - brush_size / 2)
@@ -157,5 +158,5 @@ def main():
 
 
 # Execute the main function
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
